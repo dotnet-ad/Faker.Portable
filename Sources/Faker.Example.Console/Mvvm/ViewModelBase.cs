@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Faker.Example.Console.Mvvm
+namespace Faking.Example.Console.Mvvm
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

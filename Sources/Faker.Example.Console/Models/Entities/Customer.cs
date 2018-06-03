@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Faker.Example.Console.Models.Entities
+namespace Faking.Example.Console.Models.Entities
 {
     public class Customer
     {

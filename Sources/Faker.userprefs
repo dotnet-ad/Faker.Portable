@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{7FF659B5-AB16-423A-A89A-0155FCD915E4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Faker.Test/Tests/TaskGeneratorTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Faker.Example.Console/Program.cs">
     <Files>
       <File FileName="Faker.Portable/Generators/StringGenerator.cs" Line="1" Column="17" />
-      <File FileName="Faker.Portable/Generators/IntegerGenerator.cs" Line="1" Column="17" />
-      <File FileName="Faker.Example.Console/Views/HomeView.cs" Line="1" Column="1" />
-      <File FileName="Faker.Example.Console/ViewModels/HomeViewModel.cs" Line="42" Column="39" />
+      <File FileName="Faker.Portable/Generators/IntegerGenerator.cs" Line="97" Column="43" />
+      <File FileName="Faker.Example.Console/Views/HomeView.cs" Line="8" Column="17" />
+      <File FileName="Faker.Example.Console/ViewModels/HomeViewModel.cs" Line="8" Column="23" />
       <File FileName="Faker.Portable/Faker.cs" Line="1" Column="17" />
       <File FileName="Faker.Portable/Generators/UriGenerator.cs" Line="1" Column="17" />
       <File FileName="Faker.Portable/Generators/RelayGenerator.cs" Line="3" Column="17" />
@@ -16,7 +16,7 @@
       <File FileName="Faker.Portable/Generators/DateTimeGenerator.cs" Line="1" Column="17" />
       <File FileName="Faker.Portable/Generators/BooleanGenerator.cs" Line="7" Column="32" />
       <File FileName="Faker.Portable/Generators/TaskGenerator.cs" Line="1" Column="17" />
-      <File FileName="Faker.Portable/Properties/AssemblyInfo.cs" Line="30" Column="38" />
+      <File FileName="Faker.Portable/Properties/AssemblyInfo.cs" Line="29" Column="39" />
       <File FileName="Faker.Portable/Generators/GuidGenerator.cs" Line="1" Column="1" />
       <File FileName="Faker.Portable/Constants.cs" Line="1" Column="1" />
       <File FileName="Faker.Portable/Generators/IGenerator.cs" Line="1" Column="17" />
@@ -27,7 +27,17 @@
       <File FileName="Faker.Test/Tests/IntegerGeneratorTest.cs" Line="8" Column="17" />
       <File FileName="Faker.Test/Tests/RelayGeneratorTest.cs" Line="9" Column="17" />
       <File FileName="Faker.Test/Tests/StringGeneratorTest.cs" Line="8" Column="17" />
-      <File FileName="Faker.Test/Tests/TaskGeneratorTest.cs" Line="1" Column="1" />
+      <File FileName="Faker.Test/Tests/TaskGeneratorTest.cs" Line="8" Column="17" />
+      <File FileName="Faker.Example.Console/ViewModels/Items/CustomerItemViewModel.cs" Line="1" Column="17" />
+      <File FileName="Faker.Example.Console/Mvvm/RelayCommand.cs" Line="9" Column="17" />
+      <File FileName="Faker.Example.Console/Mvvm/ViewModelBase.cs" Line="9" Column="17" />
+      <File FileName="Faker.Example.Console/Models/Entities/Contact.cs" Line="7" Column="17" />
+      <File FileName="Faker.Example.Console/Models/Entities/Customer.cs" Line="7" Column="17" />
+      <File FileName="Faker.Example.Console/Models/Services/CompanyService.cs" Line="8" Column="17" />
+      <File FileName="Faker.Example.Console/Models/Services/ICompanyService.cs" Line="8" Column="17" />
+      <File FileName="Faker.Example.Console/Views/IConsoleView.cs" Line="8" Column="17" />
+      <File FileName="Faker.Example.Console/App.config" Line="1" Column="1" />
+      <File FileName="Faker.Example.Console/Program.cs" Line="2" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

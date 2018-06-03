@@ -1,4 +1,4 @@
-﻿namespace Faker.Example.Console.ViewModels
+﻿namespace Faking.Example.Console.ViewModels
 {
     using Example.Console.Models.Services;
     using Example.Console.Mvvm;

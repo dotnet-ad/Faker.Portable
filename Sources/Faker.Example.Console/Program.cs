@@ -1,12 +1,12 @@
-﻿using Faker.Example.Console.Models.Services;
-using Faker.Example.Console.ViewModels;
+﻿using Faking.Example.Console.Models.Services;
+using Faking.Example.Console.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Faker.Example.Console
+namespace Faking.Example.Console
 {
     class Program
     {

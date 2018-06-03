@@ -1,4 +1,4 @@
-﻿namespace Faker.Example.Console.ViewModels.Items
+﻿namespace Faking.Example.Console.ViewModels.Items
 {
 	using Models.Entities;
 

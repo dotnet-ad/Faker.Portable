@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Faker.Example.Console.Mvvm
+namespace Faking.Example.Console.Mvvm
 {
     public class RelayCommand : ICommand
     {
