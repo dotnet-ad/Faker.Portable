@@ -1,45 +1,46 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace Faking.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class StringGeneratorTest
     {
         private Faker faker;
 
-        [TestInitialize]
+		[SetUp]
         public void Initialize()
         {
             faker = new Faker();
         }
 
-        [TestMethod]
+        [Test]
         public void CreationTest()
         {
             var value = faker.Create<string>();
-            Assert.IsInstanceOfType(value, typeof(string));
+            Assert.IsInstanceOf<string>(value);
         }
 
-        [TestMethod]
+        [Test]
         public void NameTest()
         {
             var value = faker.Create<string>("name");
             Assert.IsFalse(value.Contains(" "), "A name must not contains spaces");
         }
 
-        [TestMethod]
+        [Test]
         public void IdentifierTest()
         {
             var value = faker.Create<string>("id");
             Assert.IsFalse(value.Contains(" "), "An identifier must not contains spaces");
         }
 
-        [TestMethod]
+        [Test]
         public void TitleTest()
         {
             var value = faker.Create<string>("title");
@@ -47,7 +48,7 @@ namespace Faking.Test.Tests
             Assert.IsFalse(value.EndsWith("."), "A title must not end with \".\"");
         }
 
-        [TestMethod]
+        [Test]
         public void ParagraphTest()
         {
             var value = faker.Create<string>("description");
@@ -55,14 +56,14 @@ namespace Faking.Test.Tests
             Assert.IsTrue(value.EndsWith("."), "A paragraph must end with \".\"");
         }
 
-        [TestMethod]
+        [Test]
         public void LinkTest()
         {
             var value = faker.Create<string>("url");
             Assert.IsTrue(value.StartsWith("http://"), "A link must start with \"http://\"");
         }
 
-        [TestMethod]
+        [Test]
         public void EmailTest()
         {
             var value = faker.Create<string>("email");

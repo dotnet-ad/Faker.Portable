@@ -1,5 +1,5 @@
 ﻿using Faker.Test.Entities;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace Faking.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class EnumGeneratorTest
     {
         private Faker faker;
 
-        [TestInitialize]
+        [SetUp]
         public void Initialize()
         {
             faker = new Faker();
         }
 
-        [TestMethod]
+        [Test]
         public void CreationTest()
         {
             var value = faker.Create<Gender>();
-            Assert.IsInstanceOfType(value, typeof(Gender));
+            Assert.IsInstanceOf<Gender>(value);
         }
     }
 }

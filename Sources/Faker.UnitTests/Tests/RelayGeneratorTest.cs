@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Mocker.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Faking.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class RelayGeneratorTest
     {
         const string testResult = "this is a test";
@@ -17,24 +17,24 @@ namespace Faking.Test.Tests
 
         private Faker faker;
 
-        [TestInitialize]
+        [SetUp]
         public void Initialize()
         {
             faker = new Faker();
         }
 
-        [TestMethod]
+        [Test]
         public void CreationTest()
         {
             faker.Register<string>(() => testResult);
 
             var value = faker.Create<string>();
-            Assert.IsInstanceOfType(value, typeof(string));
+            Assert.IsInstanceOf<string>(value);
             Assert.AreSame(testResult, value);
 
         }
 
-        [TestMethod]
+        [Test]
         public void ObjectPropertiesTest()
         {
             faker.Register<string>(() => testResult);
@@ -49,7 +49,7 @@ namespace Faking.Test.Tests
             Assert.AreSame(testResult3, value.Author.LastName);
         }
 
-        [TestMethod]
+        [Test]
         public void ResetTest()
         {
             faker.Register<string>(() => testResult);

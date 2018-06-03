@@ -1,38 +1,38 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace Faking.Test.Tests
 {
-    [TestClass]
+	[TestFixtureAttribute]
     public class IntegerGeneratorTest
     {
         private Faker faker;
 
-        [TestInitialize]
+        [SetUp]
         public void Initialize()
         {
             faker = new Faker();
         }
 
-        [TestMethod]
+        [Test]
         public void CreationTest()
         {
             var value = faker.Create<int>();
-            Assert.IsInstanceOfType(value, typeof(int));
+            Assert.IsInstanceOf<int>(value);
         }
 
-        [TestMethod]
+        [Test]
         public void AgeTest()
         {
             var value = faker.Create<int>("age");
             Assert.IsTrue(value > 0 && value < 100);
         }
         
-        [TestMethod]
+        [Test]
         public void DatesTest()
         {
             var value = faker.Create<long>("date");

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1785C380-B30A-47AF-BF18-4A10F844FF6F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Faker.UnitTests</RootNamespace>
+    <AssemblyName>Faker.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Test.cs" />
+    <Compile Include="Entities\Article.cs" />
+    <Compile Include="Entities\Author.cs" />
+    <Compile Include="Entities\Example.cs" />
+    <Compile Include="Entities\Gender.cs" />
+    <Compile Include="Tests\ArrayGeneratorTest.cs" />
+    <Compile Include="Tests\BooleanGeneratorTest.cs" />
+    <Compile Include="Tests\EnumGenerator.cs" />
+    <Compile Include="Tests\IntegerGeneratorTest.cs" />
+    <Compile Include="Tests\RelayGeneratorTest.cs" />
+    <Compile Include="Tests\StringGeneratorTest.cs" />
+    <Compile Include="Tests\TaskGeneratorTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Faker.Portable\Faker.Portable.csproj">
+      <Project>{BBFC2042-B543-457C-A5D5-6B17AD02E227}</Project>
+      <Name>Faker.Portable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

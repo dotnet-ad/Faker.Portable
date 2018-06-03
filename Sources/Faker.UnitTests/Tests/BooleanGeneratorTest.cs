@@ -1,25 +1,25 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Faking.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class BooleanGeneratorTest
     {
         private Faker faker;
 
-        [TestInitialize]
+        [SetUp]
         public void Initialize()
         {
             faker = new Faker();
         }
 
-        [TestMethod]
+        [Test]
         public void CreationTest()
         {
             var value = faker.Create<bool>();
 
-            Assert.IsInstanceOfType(value, typeof(bool));
+			Assert.IsInstanceOf<bool>(value);
         }
     }
 }
