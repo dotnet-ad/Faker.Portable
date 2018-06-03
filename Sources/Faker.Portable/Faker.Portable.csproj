@@ -13,7 +13,7 @@
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <Authors>Aloïs Deniel</Authors>
     <PackageId>Faker.Portable</PackageId>
-    <Title>Faker</Title>
+    <Title>Faker.Portable</Title>
     <Summary>Native markdown rendering for Xamarin.Forms.</Summary>
     <Description>Native markdown rendering for Xamarin.Forms.</Description>
     <PackageTags>xamarin, ios, android, md, markdown, native</PackageTags>
