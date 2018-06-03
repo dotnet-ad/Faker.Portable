@@ -1,4 +1,4 @@
-# Faker.Portable
+![Faker.Portable](logo.png)
 
 I wrote this library some time ago for helping me generating some faked data. It's a quick and ugly implementation at the moment, but it do the job pretty well for me.
 
