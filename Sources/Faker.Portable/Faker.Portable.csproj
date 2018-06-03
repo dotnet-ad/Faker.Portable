@@ -1,68 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BBFC2042-B543-457C-A5D5-6B17AD02E227}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Faking</RootNamespace>
-    <AssemblyName>Faker.Portable</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyFileVersion>0.0.0.0</AssemblyFileVersion>
+    <Version>0.0.0.0</Version>
+    <PackageVersion>0.0.0.0</PackageVersion>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <Authors>Aloïs Deniel</Authors>
+    <PackageId>Faker.Portable</PackageId>
+    <Title>Faker</Title>
+    <Summary>Native markdown rendering for Xamarin.Forms.</Summary>
+    <Description>Native markdown rendering for Xamarin.Forms.</Description>
+    <PackageTags>xamarin, ios, android, md, markdown, native</PackageTags>
+    <Owners>Aloïs Deniel</Owners>
+    <PackOnBuild>true</PackOnBuild>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageIconUrl>https://raw.githubusercontent.com/aloisdeniel/Faker.Portable/master/Documentation/Logo.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/aloisdeniel/Faker.Portable/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/aloisdeniel/Faker.Portable</PackageProjectUrl>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="Generators\EnumGenerator.cs" />
-    <Compile Include="Generators\RelayGenerator.cs" />
-    <Compile Include="Generators\UriGenerator.cs" />
-    <Compile Include="Faker.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Generators\BooleanGenerator.cs" />
-    <Compile Include="Generators\CharacterGenerator.cs" />
-    <Compile Include="Generators\DictionaryGenerator.cs" />
-    <Compile Include="Generators\EnumerableGenerator.cs" />
-    <Compile Include="Generators\DateTimeGenerator.cs" />
-    <Compile Include="Generators\DoubleGenerator.cs" />
-    <Compile Include="Generators\IntegerGenerator.cs" />
-    <Compile Include="Generators\StringGenerator.cs" />
-    <Compile Include="Generators\TaskGenerator.cs" />
-    <Compile Include="Generators\IGenerator.cs" />
-    <Compile Include="Generators\GuidGenerator.cs" />
-    <Compile Include="Generators\LongGenerator.cs" />
-    <Compile Include="Generators\RouterGenerator.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
