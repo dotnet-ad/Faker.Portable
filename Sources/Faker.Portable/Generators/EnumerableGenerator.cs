@@ -13,7 +13,8 @@
     {
         public Type[] MockedTypes => new [] 
 		{ 
-            typeof(IEnumerable<>), 
+            typeof(IEnumerable<>),
+            typeof(IList<>),  
             typeof(List<>), 
             typeof(Stack<>), 
             typeof(ObservableCollection<>),
