@@ -9,15 +9,17 @@
     /// </summary>
     public class StringGenerator : IGenerator
     {
-        public Type[] MockedTypes
-        {
-            get { return new Type[] { typeof(string) }; }
-        }
+        public Type[] MockedTypes => new [] { typeof(string) };
+        
+		public static int LastGeneratedIdentifier = 1;
 
-        public bool CanCreate(string name, Type type)
-        {
-            return this.MockedTypes.Contains(type);
-        }
+        public bool CanCreate(string name, Type type) => this.MockedTypes.Contains(type);
+
+		/// <summary>
+		/// Creates a unique identifier.
+		/// </summary>
+		/// <returns>The identifier.</returns>
+		public string CreateIdentifier() => $"_{LastGeneratedIdentifier++}";
 
         /// <summary>
         /// Creates a random word.
@@ -27,6 +29,12 @@
         {
             return Constants.AllWords[Faker.Random.Next(0, Constants.AllWords.Length)].ToLower();
         }
+
+		/// <summary>
+		/// Creates a random country.
+		/// </summary>
+		/// <returns></returns>
+		public string CreateCountry() => Constants.Countries[Faker.Random.Next(0, Constants.Countries.Length)].ToLower();
 
         /// <summary>
         /// Creates a random name.
@@ -62,10 +70,7 @@
         /// Creates a random sentence.
         /// </summary>
         /// <returns></returns>
-        public string CreateSentence(int words = 0)
-        {
-            return this.CreateTitle(words) + ".";
-        }
+        public string CreateSentence(int words = 0) => this.CreateTitle(words) + ".";
 
         /// <summary>
         /// Creates a random paragraph.
@@ -77,7 +82,7 @@
                 sentences = Faker.Random.Next(2, 8);
 
 
-            StringBuilder result = new StringBuilder(this.CreateSentence());
+            var result = new StringBuilder(this.CreateSentence());
 
             for (int i = 1; i < sentences; i++)
             {
@@ -91,15 +96,9 @@
         /// Creates a random email address.
         /// </summary>
         /// <returns></returns>
-        public string CreateEmail()
-        {
-            return String.Format("{0}.{1}@{2}.com", this.CreateWord(), this.CreateWord(), this.CreateWord());
-        }
+        public string CreateEmail() =>  $"{this.CreateName().ToLower()}.{this.CreateName().ToLower()}@{this.CreateName().ToLower()}.com";
 
-        public string CreateLink()
-        {
-            return String.Format("http://www.bing.com/search?q={0}", this.CreateWord());
-        }
+        public string CreateLink() => $"http://www.bing.com/search?q={this.CreateName()}";
 
         public string CreateHexColor()
         {
@@ -108,30 +107,28 @@
             return "#" + BitConverter.ToString(bytes).Replace("-", string.Empty);
         }
 
-        public string CreateImageLink()
-        {
-            return "http://lorempixel.com/500/500/";
-        }
+        public string CreateImageLink() => "https://unsplash.it/200/200/";
 
         public object Create(string name, Type type)
         {
             name = name.ToLower().Trim();
 
-            if (name == "id" || 
-                name == "key"||
-                name == "identifier")
-                return this.CreateWord();
+			if (name == "id" || name == "key" || name == "identifier")
+				return this.CreateIdentifier();
 
+            if (name.Contains("country"))
+				return this.CreateCountry();
+			
             if (name.Contains("email"))
                 return this.CreateEmail();
 
             if (name.Contains("color"))
                 return this.CreateHexColor();
 
-            if (name.Contains("name"))
+			if (name.Contains("name") || name.Contains("city"))
                 return this.CreateName();
 
-            if (name.Contains("description") || name.Contains("summary"))
+            if (name.Contains("description") || name.Contains("summary") || name.Contains("bio"))
                 return this.CreateParagraph();
 
             if (name.Contains("link") || 

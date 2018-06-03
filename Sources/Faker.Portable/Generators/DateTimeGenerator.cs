@@ -8,20 +8,11 @@
     /// </summary>
     public class DateTimeGenerator : IGenerator
     {
-        public Type[] MockedTypes
-        {
-            get { return new Type[] { typeof(DateTime) }; }
-        }
+        public Type[] MockedTypes => new Type[] { typeof(DateTime) };
 
-        public bool CanCreate(string name, Type type)
-        {
-            return this.MockedTypes.Contains(type);
-        }
+        public bool CanCreate(string name, Type type) => this.MockedTypes.Contains(type);
 
-        public DateTime CreateBirthday()
-        {
-            return DateTime.Now - TimeSpan.FromDays(365 * Faker.Random.Next(10, 70));
-        }
+        public DateTime CreateBirthday() =>  DateTime.Now - TimeSpan.FromDays(365 * Faker.Random.Next(10, 70));
 
         /// <summary>
         /// Creates a random datetime
@@ -29,10 +20,7 @@
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public DateTime CreateDateTime()
-        {
-            return this.CreateDateTime(Constants.DefaultDateTimeMin, Constants.DefaultDateTimeMax);
-        }
+        public DateTime CreateDateTime() => this.CreateDateTime(Constants.DefaultDateTimeMin, Constants.DefaultDateTimeMax);
 
         /// <summary>
         /// Creates a random datetime
@@ -40,10 +28,7 @@
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public DateTime CreateDateTime(DateTime min, DateTime max)
-        {
-            return min.AddSeconds(Faker.Random.NextDouble() * (max - min).TotalSeconds);
-        }
+        public DateTime CreateDateTime(DateTime min, DateTime max) =>  min.AddSeconds(Faker.Random.NextDouble() * (max - min).TotalSeconds);
 
         public object Create(string name, Type type)
         {

@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{7FF659B5-AB16-423A-A89A-0155FCD915E4}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Faker.Portable/Properties/AssemblyInfo.cs">
+    <Files>
+      <File FileName="Faker.Portable/Generators/StringGenerator.cs" Line="99" Column="138" />
+      <File FileName="Faker.Portable/Generators/IntegerGenerator.cs" Line="83" Column="37" />
+      <File FileName="Faker.Example.Console/Views/HomeView.cs" Line="1" Column="1" />
+      <File FileName="Faker.Example.Console/ViewModels/HomeViewModel.cs" Line="42" Column="39" />
+      <File FileName="Faker.Portable/Faker.cs" Line="7" Column="17" />
+      <File FileName="Faker.Portable/Generators/UriGenerator.cs" Line="25" Column="1" />
+      <File FileName="Faker.Portable/Generators/RelayGenerator.cs" Line="1" Column="14" />
+      <File FileName="Faker.Portable/Generators/EnumGenerator.cs" Line="15" Column="6" />
+      <File FileName="Faker.Portable/Generators/EnumerableGenerator.cs" Line="52" Column="49" />
+      <File FileName="Faker.Portable/Generators/DoubleGenerator.cs" Line="30" Column="4" />
+      <File FileName="Faker.Portable/Generators/DictionaryGenerator.cs" Line="21" Column="27" />
+      <File FileName="Faker.Portable/Generators/CharacterGenerator.cs" Line="27" Column="1" />
+      <File FileName="Faker.Portable/Generators/DateTimeGenerator.cs" Line="42" Column="1" />
+      <File FileName="Faker.Portable/Generators/BooleanGenerator.cs" Line="12" Column="2" />
+      <File FileName="Faker.Portable/Generators/TaskGenerator.cs" Line="27" Column="3" />
+      <File FileName="Faker.Portable/Properties/AssemblyInfo.cs" Line="31" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Faker.Example.Console PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

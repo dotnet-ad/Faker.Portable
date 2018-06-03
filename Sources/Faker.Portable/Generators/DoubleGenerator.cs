@@ -8,15 +8,9 @@
     /// </summary>
     public class DoubleGenerator : IGenerator
     {
-        public Type[] MockedTypes
-        {
-            get { return new Type[] { typeof(double), typeof(float) }; }
-        }
+        public Type[] MockedTypes => new Type[] { typeof(double), typeof(float) };
 
-        public bool CanCreate(string name, Type type)
-        {
-            return this.MockedTypes.Contains(type);
-        }
+        public bool CanCreate(string name, Type type) => this.MockedTypes.Contains(type);
 
         /// <summary>
         /// Creates a random double.

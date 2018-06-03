@@ -27,52 +27,27 @@
             this.Register(new TaskGenerator());
             this.Register(new EnumerableGenerator());
             this.Register(new DictionaryGenerator());
-            this.Register(new UriGenerator());
+            this.Register(new UriGenerator(this));
             this.Register(new EnumGenerator());
         }
 
-        #region Singleton
+		#region Default
 
-        private static volatile Faker instance;
+		private static Lazy<Faker> instance = new Lazy<Faker>(() => new Faker());
 
-        private static object syncRoot = new Faker();
+		/// <summary>
+		/// Default faker instance.
+		/// </summary>
+		public static Faker Default => instance.Value;
 
-        /// <summary>
-        /// Default mocker instance.
-        /// </summary>
-        public static Faker Default
-        {
-            get 
-            {
-                if (instance == null) 
-                {
-                    lock (syncRoot) 
-                    {
-                        if (instance == null)
-                            instance = new Faker();
-                    }
-                }
+		#endregion
 
-                return instance;
-            }
-        }
+		/// <summary>
+		/// Unique random instance.
+		/// </summary>
+		public static Random Random { get; } = new Random();
 
-        #endregion
-
-        private static Random random = new Random();
-
-        /// <summary>
-        /// Unique random instance.
-        /// </summary>
-        public static Random Random
-        {
-            get
-            {
-                return random;
-            }
-        }
-
-        public int MaxScope { get; set; }
+		public int MaxScope { get; set; }
 
         #region Sub generators
 
@@ -82,20 +57,14 @@
         /// Registering a generator.
         /// </summary>
         /// <param name="mocker">The generator to register.</param>
-        public void Register(IGenerator mocker)
-        {
-            this.generators.Insert(0,mocker);
-        }
+        public void Register(IGenerator mocker) => this.generators.Insert(0,mocker);
 
         public void Register(Func<string, Type, bool> predicat, Func<string, Type, object> createInstance)
         {
             this.generators.Insert(0, new RelayGenerator(predicat,createInstance));
         }
 
-        public void Register<Type>(Func<object> createInstance)
-        {
-            this.Register((s,t) => t == typeof(Type), (s,t) => createInstance());
-        }
+        public void Register<Type>(Func<object> createInstance) => this.Register((s,t) => t == typeof(Type), (s,t) => createInstance());
 
         public void Register<Type>(string name, Func<object> createInstance)
         {
@@ -107,15 +76,9 @@
             this.Register((s, t) => t == typeof(Type) && predicat(s), (s, t) => createInstance());
         }
 
-        public void Reset()
-        {
-            this.generators.RemoveAll((g) => g.GetType() == typeof(RelayGenerator));
-        }
+        public void Reset() => this.generators.RemoveAll((g) => g.GetType() == typeof(RelayGenerator));
 
-        public IGenerator GetGenerator(Type type, string name)
-        {
-            return this.generators.FirstOrDefault((g) => g.CanCreate(name, type));
-        }
+        public IGenerator GetGenerator(Type type, string name) => this.generators.FirstOrDefault((g) => g.CanCreate(name, type));
         
         #endregion
 
@@ -126,10 +89,7 @@
         /// </summary>
         /// <typeparam name="T">Type of the generated instance.</typeparam>
         /// <returns>The created fake instance.</returns>
-        public T Create<T>()
-        {
-            return (T) this.Create(typeof(T));
-        }
+        public T Create<T>() => (T) this.Create(typeof(T));
 
         /// <summary>
         /// Creates a mocked instance for the given type, and an advice name.
@@ -137,20 +97,14 @@
         /// <typeparam name="T">Type of the generated instance.</typeparam>
         /// <param name="name">Name that will help generating a realistic instance.</param>
         /// <returns>The created fake instance.</returns>
-        public T Create<T>(string name)
-        {
-            return (T) this.Create(typeof(T), name);
-        }
+        public T Create<T>(string name) => (T) this.Create(typeof(T), name);
 
         /// <summary>
         /// Creates a mocked instance for the given type.
         /// </summary>
         /// <param name="type">Type of the generated instance.</param>
         /// <returns>The created fake instance.</returns>
-        public object Create(Type type)
-        {
-            return this.Create(type, String.Empty);
-        }
+        public object Create(Type type) => this.Create(type, string.Empty);
 
         /// <summary>
         /// Creates a mocked instance for the given type, and an advice name.
@@ -158,10 +112,7 @@
         /// <param name="type">Type of the generated instance.</param>
         /// <param name="name">Name that will help generating a realistic instance.</param>
         /// <returns>The created fake instance.</returns>
-        public object Create(Type type, String name)
-        {
-            return this.Create(name, type);
-        }
+        public object Create(Type type, string name) => this.Create(name, type);
 
         #endregion
 
@@ -170,7 +121,7 @@
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        private object Create(String name, Type type, int scope = 0)
+        private object Create(string name, Type type, int scope = 0)
         {
             if (type.IsArray)
             {

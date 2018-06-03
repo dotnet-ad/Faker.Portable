@@ -10,33 +10,23 @@
     /// </summary>
     public class DictionaryGenerator : IGenerator
     {
-        public Type[] MockedTypes
-        {
-            get
-            {
-                return new Type[] { 
+        public Type[] MockedTypes => new Type[] 
+		{ 
                 typeof(IDictionary<,>), 
                 typeof(Dictionary<,>)
-            };
-            }
-        }
+        };
 
-        public bool CanCreate(string name, Type type)
-        {
-            return this.MockedTypes.Contains(type);
-        }
+        public bool CanCreate(string name, Type type) => this.MockedTypes.Contains(type);
 
         public object Create(string name, Type type)
         {
-            var generic = type.GetGenericTypeDefinition();
-            Type[] elementTypes = type.GenericTypeArguments;
+           var elementTypes = type.GenericTypeArguments;
 
-            Type constructed = typeof(Dictionary<,>).MakeGenericType(elementTypes);
+            var constructed = typeof(Dictionary<,>).MakeGenericType(elementTypes);
             var result = Activator.CreateInstance(constructed);
 
-            MethodInfo methodInfo = constructed.GetTypeInfo().GetDeclaredMethod("Add");
-            ParameterInfo[] parameters = methodInfo.GetParameters();
-            MethodInfo containsKeyInfo = constructed.GetTypeInfo().GetDeclaredMethod("ContainsKey");
+            var methodInfo = constructed.GetTypeInfo().GetDeclaredMethod("Add");
+            var containsKeyInfo = constructed.GetTypeInfo().GetDeclaredMethod("ContainsKey");
 
             for (int i = 0; i < Faker.Random.Next(5, 50); i++)
             {

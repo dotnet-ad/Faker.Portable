@@ -11,20 +11,15 @@
     /// </summary>
     public class EnumerableGenerator: IGenerator
     {
-        public Type[] MockedTypes
-        {
-            get { return new Type[] { 
-                typeof(IEnumerable<>), 
-                typeof(List<>), 
-                typeof(Stack<>), 
-                typeof(ObservableCollection<>)
-            }; }
-        }
+        public Type[] MockedTypes => new [] 
+		{ 
+            typeof(IEnumerable<>), 
+            typeof(List<>), 
+            typeof(Stack<>), 
+            typeof(ObservableCollection<>),
+        };
 
-        public bool CanCreate(string name, Type type)
-        {
-            return this.MockedTypes.Contains(type);
-        }
+        public bool CanCreate(string name, Type type) => this.MockedTypes.Contains(type);
 
         public object Create(string name, Type type)
         {
@@ -46,7 +41,6 @@
             var result = Activator.CreateInstance(constructed);
 
             MethodInfo methodInfo = constructed.GetTypeInfo().GetDeclaredMethod("Add");
-            ParameterInfo[] parameters = methodInfo.GetParameters();
 
             for (int i = 0; i < total; i++)
             {

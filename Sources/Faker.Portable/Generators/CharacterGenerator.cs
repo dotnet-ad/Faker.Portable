@@ -13,23 +13,14 @@
             get { return new Type[] { typeof(char) }; }
         }
 
-        public bool CanCreate(string name, Type type)
-        {
-            return this.MockedTypes.Contains(type);
-        }
+        public bool CanCreate(string name, Type type) =>  this.MockedTypes.Contains(type);
 
         /// <summary>
         /// Creates a random letter.
         /// </summary>
         /// <returns></returns>
-        public char CreateLetter()
-        {
-            return (char)('a' + Faker.Random.Next(0, 26));
-        }
+        public char CreateLetter() => (char)('a' + Faker.Random.Next(0, 26));
 
-        public object Create(string name, Type type)
-        {
-            return this.CreateLetter();
-        }
+        public object Create(string name, Type type) =>  this.CreateLetter();
     }
 }

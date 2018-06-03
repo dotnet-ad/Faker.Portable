@@ -33,7 +33,14 @@
 
         private async void ExecuteUpdate(object arg)
         {
-            await this.ExecuteUpdateAsync(arg);
+			try
+			{
+				await this.ExecuteUpdateAsync(arg);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("Failed " + ex);
+			}
         }
 
         public async Task ExecuteUpdateAsync(object arg)

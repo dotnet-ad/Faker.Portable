@@ -1,13 +1,13 @@
-![Faker.Portable](logo.png)
+![Faker.Portable](Documentation/logo-wide.png)
 
 I wrote this library some time ago for helping me generating some faked data. It's a quick and ugly implementation at the moment, but it do the job pretty well for me.
 
 
 ## Installation
 
-The library is available for as a PCL (**.NET Framework 4.5, Windows 8, Windows Phone 8.1, Windows Phone Silverlight 8**) on [NuGet](https://www.nuget.org/packages/Faker.Portable/).
+The library is available as a PCL on [NuGet](https://www.nuget.org/packages/Faker.Portable/).
 
-To install Faker.Portable, run the following command in the Package Manager Console.
+To install **Faker.Portable**, run the following command in the Package Manager Console.
 
 	PM> Install-Package Faker.Portable
 
@@ -67,7 +67,6 @@ The library currently supports those base types : `string`, `Uri`, `bool`, `char
 * Cleaning code and improving architecture.
 * Adding missing base types.
 * Adding more advices support.
-* Adding Xamarin compatibility.
 
 # Copyright and license
 
