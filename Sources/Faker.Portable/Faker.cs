@@ -1,4 +1,4 @@
-﻿namespace Faker
+﻿namespace Faking
 {
     using Generators;
     using System;

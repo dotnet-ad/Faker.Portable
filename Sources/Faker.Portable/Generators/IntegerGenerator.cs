@@ -90,7 +90,6 @@
                 name.Contains("date") ||
                 name.Contains("ts"))
                 result = this.CreateTimestamp();
-
             else if (name.Contains("age"))
                 result = this.CreateAge();
 
