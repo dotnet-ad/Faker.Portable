@@ -8,12 +8,7 @@
     /// </summary>
     public class CharacterGenerator : IGenerator
     {
-        public Type[] MockedTypes
-        {
-            get { return new Type[] { typeof(char) }; }
-        }
-
-        public bool CanCreate(string name, Type type) =>  this.MockedTypes.Contains(type);
+		public bool CanCreate(string name, Type type) =>  type == typeof(char);
 
         /// <summary>
         /// Creates a random letter.

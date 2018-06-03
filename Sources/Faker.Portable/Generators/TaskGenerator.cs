@@ -10,7 +10,21 @@
     /// </summary>
     public class TaskGenerator : IGenerator
     {
-        public Type[] MockedTypes => new Type[] { typeof(Task), typeof(Task<>) };
+		public TaskGenerator(int fakeDuration = 500)
+		{
+			this.fakeDuration = fakeDuration;
+			this.createTaskMethod = this.GetType().GetTypeInfo().GetDeclaredMethod(nameof(CreateGenericTask));
+		}
+
+		#region Fields
+
+		private int fakeDuration;
+
+		private MethodInfo createTaskMethod;
+
+		#endregion
+
+		public Type[] MockedTypes => new Type[] { typeof(Task), typeof(Task<>) };
 
         public bool CanCreate(string name, Type type) =>  this.MockedTypes.Contains(type);
 
@@ -18,26 +32,20 @@
         {
             if (!type.GetTypeInfo().IsGenericType)
             {
-                return Task.Factory.StartNew(() => { });
+                return this.CreateTask();
             }
-            
-            var task = InstanciateCompletionSource(type);
-            return task;
+
+			var genericCreateTaskMethod = createTaskMethod.MakeGenericMethod(type.GenericTypeArguments[0]);
+            return genericCreateTaskMethod.Invoke(this, null);
         }
 
-        private object InstanciateCompletionSource(Type type)
-        {
-            Type[] typeParameters = type.GenericTypeArguments;
+		private Task CreateTask() => Task.Delay(this.fakeDuration);
 
-            type = typeParameters[0];
-
-            Type constructed = typeof(TaskCompletionSource<>).MakeGenericType(type);
-
-            var tcs = Activator.CreateInstance(constructed);
-
-            constructed.GetTypeInfo().GetDeclaredMethod("SetResult").Invoke(tcs, new object[] { Faker.Default.Create(type) });
-
-            return tcs.GetType().GetTypeInfo().GetDeclaredProperty("Task").GetValue(tcs, null);
-        }
+		private async Task<T> CreateGenericTask<T>()
+		{
+			var result = Faker.Default.Create<T>();
+			await Task.Delay(this.fakeDuration);
+			return result;
+		}
     }
 }

@@ -15,9 +15,7 @@
 
 		readonly Faker owner;
 
-		public Type[] MockedTypes => new Type[] { typeof(Uri) };
-
-        public bool CanCreate(string name, Type type) => this.MockedTypes.Contains(type);
+        public bool CanCreate(string name, Type type) => type == typeof(Uri);
 
         public object Create(string name, Type type) => new Uri((string)this.owner.Create(typeof(string),"uri_" + name));
     }

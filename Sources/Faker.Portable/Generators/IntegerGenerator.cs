@@ -6,19 +6,21 @@
     /// <summary>
     /// A generator for integers.
     /// </summary>
-    public class IntegerGenerator : IGenerator
+    public class IntegerGenerator : RouterGenerator<int>
     {
-        public Type[] MockedTypes
-        {
-            get { return new Type[] { typeof(int), typeof(byte) }; }
-        }
+		public IntegerGenerator()
+		{
+			this.AddRegexRule(@"^(id|key|identifier)\Z", CreateIdentifier);
+			this.AddRegexRule(@"^.*age.*\Z", CreateAge);
+			this.AddRegexRule(@"^.*day.*\Z", CreateDay);
+			this.AddRegexRule(@"^.*year.*\Z", CreateYear);
+			this.AddRegexRule(@"^.*month.*\Z", CreateMonth);
+			this.AddRegexRule(@"^.*(percent|amount).*\Z", CreatePercent);
+			this.AddRule<byte>(CreateByte);
+			this.AddRule(() => CreateInteger());
+		}
 
 		public static int LastGeneratedIdentifier = 1;
-
-        public bool CanCreate(string name, Type type)
-        {
-            return this.MockedTypes.Contains(type);
-        }
 
 		/// <summary>
 		/// Creates a unique identifier.
@@ -70,34 +72,5 @@
         /// <returns></returns>
         public int CreateInteger(int min = Constants.DefaultNumberMin, int max = Constants.DefaultNumberMax) => Faker.Random.Next(min, max);
 
-        public object Create(string name, Type type)
-        {
-			object result = 0;
-
-            name = name.ToLower().Trim();
-
-            if(type == typeof(byte))
-				result = this.CreateByte();
-			else if (name == "id" || name == "identifier")
-				result = this.CreateIdentifier();
-            else if (name.Contains("age"))
-                result = this.CreateAge();
-
-            else if (name.Contains("day"))
-                result = this.CreateDay();
-
-            else if (name.Contains("year"))
-                result = this.CreateYear();
-
-            else if (name.Contains("month"))
-                result = this.CreateMonth();
-
-            else if (name.Contains("percent"))
-                result = this.CreatePercent();
-			else
-				result = this.CreateInteger();
-
-			return Convert.ChangeType(result, type);
-        }
     }
 }

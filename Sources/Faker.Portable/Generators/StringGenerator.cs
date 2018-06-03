@@ -2,18 +2,26 @@
 {
     using System;
     using System.Text;
-    using System.Linq;
 
     /// <summary>
     /// A generator for text data.
     /// </summary>
-    public class StringGenerator : IGenerator
+	public class StringGenerator : RouterGenerator<string>
     {
-        public Type[] MockedTypes => new [] { typeof(string) };
+		public StringGenerator()
+		{
+			this.AddRegexRule(@"^(id|key|identifier)\Z", CreateIdentifier);
+			this.AddRegexRule(@"^.*country.*\Z", CreateCountry);
+			this.AddRegexRule(@"^.*email.*\Z", CreateEmail);
+			this.AddRegexRule(@"^.*color.*\Z", CreateHexColor);
+			this.AddRegexRule(@"^.*(name|city).*\Z", CreateName);
+			this.AddRegexRule(@"^.*title.*\Z", () => this.CreateTitle());
+			this.AddRegexesRule(new[] { @"^.*(link|uri|url).*\Z", @"^.*(image|photo|icon|avatar|screenshot|illustration).*\Z" }, CreateImageLink);
+			this.AddRegexRule(@"^.*(link|uri|url).*\Z", CreateLink);
+			this.AddRule(() => this.CreateSentence());
+		}
         
 		public static int LastGeneratedIdentifier = 1;
-
-        public bool CanCreate(string name, Type type) => this.MockedTypes.Contains(type);
 
 		/// <summary>
 		/// Creates a unique identifier.
@@ -25,10 +33,7 @@
         /// Creates a random word.
         /// </summary>
         /// <returns></returns>
-        public string CreateWord()
-        {
-            return Constants.AllWords[Faker.Random.Next(0, Constants.AllWords.Length)].ToLower();
-        }
+        public string CreateWord() =>  Constants.AllWords[Faker.Random.Next(0, Constants.AllWords.Length)].ToLower();
 
 		/// <summary>
 		/// Creates a random country.
@@ -43,7 +48,6 @@
         public string CreateName()
         {
             var word = this.CreateWord();
-
             return char.ToUpper(word[0]) + word.Substring(1);
         }
 
@@ -56,7 +60,7 @@
             if (words <= 0)
                 words = Faker.Random.Next(5, 20);
             
-            StringBuilder result = new StringBuilder(this.CreateName());
+            var result = new StringBuilder(this.CreateName());
 
             for (int i = 1; i < words; i++)
             {
@@ -66,11 +70,11 @@
             return result.ToString();
         }
 
-        /// <summary>
-        /// Creates a random sentence.
-        /// </summary>
-        /// <returns></returns>
-        public string CreateSentence(int words = 0) => this.CreateTitle(words) + ".";
+  		/// <summary>
+		/// Creates a random sentence.
+		/// </summary>
+		/// <returns></returns>
+		public string CreateSentence(int words = 0) => this.CreateTitle(words) + ".";
 
         /// <summary>
         /// Creates a random paragraph.
@@ -109,50 +113,5 @@
 
         public string CreateImageLink() => "https://unsplash.it/200/200/";
 
-        public object Create(string name, Type type)
-        {
-            name = name.ToLower().Trim();
-
-			if (name == "id" || name == "key" || name == "identifier")
-				return this.CreateIdentifier();
-
-            if (name.Contains("country"))
-				return this.CreateCountry();
-			
-            if (name.Contains("email"))
-                return this.CreateEmail();
-
-            if (name.Contains("color"))
-                return this.CreateHexColor();
-
-			if (name.Contains("name") || name.Contains("city"))
-                return this.CreateName();
-
-            if (name.Contains("description") || name.Contains("summary") || name.Contains("bio"))
-                return this.CreateParagraph();
-
-            if (name.Contains("link") || 
-                name.Contains("uri") || 
-                name.Contains("url"))
-            {
-                if (name.Contains("image") ||
-                    name.Contains("photo") ||
-                    name.Contains("icon") || 
-                    name.Contains("avatar") || 
-                    name.Contains("screenshot"))
-                {
-                    return CreateImageLink();
-                }
-
-                return this.CreateLink();
-            }
-
-            if (name.Contains("title"))
-                return this.CreateTitle();
-
-            return this.CreateSentence();
-        }
-
-        
     }
 }

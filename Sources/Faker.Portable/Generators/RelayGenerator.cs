@@ -14,14 +14,8 @@ namespace Faking.Generators
 
         private Func<string, Type, object> createInstance;
 
-        public bool CanCreate(string name, Type type)
-        {
-            return predicat(name, type);
-        }
+		public bool CanCreate(string name, Type type) => predicat(name, type);
 
-        public object Create(string name, Type type)
-        {
-            return this.createInstance(name, type);
-        }
+		public object Create(string name, Type type) => this.createInstance(name, type);
     }
 }

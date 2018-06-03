@@ -6,11 +6,13 @@
     /// <summary>
     /// Generator for doubles and floats.
     /// </summary>
-    public class DoubleGenerator : IGenerator
+	public class DoubleGenerator : RouterGenerator
     {
-        public Type[] MockedTypes => new Type[] { typeof(double), typeof(float) };
-
-        public bool CanCreate(string name, Type type) => this.MockedTypes.Contains(type);
+		public DoubleGenerator()
+		{
+			this.AddRule<float>(() => (float)this.CreateDouble());
+			this.AddRule<double>(() => CreateDouble());
+		}
 
         /// <summary>
         /// Creates a random double.
@@ -21,14 +23,6 @@
         public double CreateDouble(double min = Constants.DefaultNumberMin, double max = Constants.DefaultNumberMax)
         {
             return min + Faker.Random.NextDouble() * (max - min);
-        }
-
-        public object Create(string name, Type type)
-        {
-            if (type == typeof(float))
-                return (float)this.CreateDouble();
-
-            return this.CreateDouble();
         }
     }
 }

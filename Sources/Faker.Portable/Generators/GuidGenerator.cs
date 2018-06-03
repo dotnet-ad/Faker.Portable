@@ -2,6 +2,9 @@
 {
 	using System;
 
+	/// <summary>
+	/// A GUID generator.
+	/// </summary>
 	public class GuidGenerator : IGenerator
 	{
 		public bool CanCreate(string name, Type type) => type == typeof(Guid);
