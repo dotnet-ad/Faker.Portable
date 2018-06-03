@@ -1,9 +1,4 @@
-﻿using NUnit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using NUnit.Framework;
 
 namespace Faking.Test.Tests
@@ -68,6 +63,20 @@ namespace Faking.Test.Tests
         {
             var value = faker.Create<string>("email");
             Assert.IsTrue(value.Split('@').Length == 2, "A paragraph must be X@Y");
-        }
+		}
+
+		[Test]
+		public void EanTest()
+		{
+			var digits = new[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+			var value = faker.Create<string>("ean13");
+			Assert.IsTrue(value.Length == 13, "A ean 13 code must be 13 character long");
+			Assert.IsTrue(value.Any(x => digits.Contains(x)), "A ean 13 code must be only composed of digits");
+
+			value = faker.Create<string>("ean8");
+			Assert.IsTrue(value.Length == 8, "A ean 8 code must be 13 character long");
+			Assert.IsTrue(value.Any(x => digits.Contains(x)), "A ean 8 code must be only composed of digits");
+		}
     }
 }
