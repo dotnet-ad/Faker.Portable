@@ -210,17 +210,20 @@
                     p = op;
                 }
             }
-            
-            var args = new object[p.Length];
-            for (int i = 0; i < p.Length; i++)
-			{
-                var param = p[i];
-                args[i] = Create(param.Name, param.ParameterType);
-			}
 
-            var mock = Activator.CreateInstance(type,args);
+            if(p != null)
+            {
+                var args = new object[p.Length];
+                for (int i = 0; i < p.Length; i++)
+                {
+                    var param = p[i];
+                    args[i] = Create(param.Name, param.ParameterType);
+                }
 
-            return mock;
+                return Activator.CreateInstance(type, args);
+            }
+
+            return Activator.CreateInstance(type);
         }
     }
 }
