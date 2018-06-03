@@ -19,7 +19,8 @@
 
             // Types
             this.Register(new BooleanGenerator());
-            this.Register(new CharacterGenerator());
+			this.Register(new CharacterGenerator());
+			this.Register(new GuidGenerator());
             this.Register(new IntegerGenerator());
             this.Register(new DoubleGenerator());
             this.Register(new DateTimeGenerator());

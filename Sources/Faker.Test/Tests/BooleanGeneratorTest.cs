@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Faker.Test.Tests
+namespace Faking.Test.Tests
 {
     [TestClass]
     public class BooleanGeneratorTest

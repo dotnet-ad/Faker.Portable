@@ -1,4 +1,4 @@
-﻿namespace Faker.Generators
+﻿namespace Faking.Generators
 {
     using System;
     using System.Linq;
@@ -78,35 +78,37 @@
 
         public object Create(string name, Type type)
         {
+			object result = 0;
+
             name = name.ToLower().Trim();
 
             if(type == typeof(byte))
-                return this.CreateByte();
-            
-			if (name == "id" || name == "identifier")
-				return this.CreateIdentifier();
-
-            if (name.Contains("timestamp") ||
+				result = this.CreateByte();
+			else if (name == "id" || name == "identifier")
+				result = this.CreateIdentifier();
+            else if (name.Contains("timestamp") ||
                 name.Contains("date") ||
                 name.Contains("ts"))
-                return this.CreateTimestamp();
+                result = this.CreateTimestamp();
 
-            if (name.Contains("age"))
-                return this.CreateAge();
+            else if (name.Contains("age"))
+                result = this.CreateAge();
 
-            if (name.Contains("day"))
-                return this.CreateDay();
+            else if (name.Contains("day"))
+                result = this.CreateDay();
 
-            if (name.Contains("year"))
-                return this.CreateYear();
+            else if (name.Contains("year"))
+                result = this.CreateYear();
 
-            if (name.Contains("month"))
-                return this.CreateMonth();
+            else if (name.Contains("month"))
+                result = this.CreateMonth();
 
-            if (name.Contains("percent"))
-                return this.CreatePercent();
+            else if (name.Contains("percent"))
+                result = this.CreatePercent();
+			else
+				result = this.CreateInteger();
 
-            return this.CreateInteger();
+			return Convert.ChangeType(result, type);
         }
     }
 }

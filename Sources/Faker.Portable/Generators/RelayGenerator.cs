@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Faker.Generators
+namespace Faking.Generators
 {
     public class RelayGenerator : IGenerator
     {

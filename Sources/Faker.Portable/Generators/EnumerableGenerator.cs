@@ -1,4 +1,4 @@
-﻿namespace Faker.Generators
+﻿namespace Faking.Generators
 {
     using System;
     using System.Collections.Generic;

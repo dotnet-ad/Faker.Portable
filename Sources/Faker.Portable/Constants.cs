@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace Faker
+﻿namespace Faking
 {
+	using System;
     using System.Text;
 
     /// <summary>

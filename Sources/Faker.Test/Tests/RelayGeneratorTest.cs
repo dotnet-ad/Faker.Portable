@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Faker.Test.Tests
+namespace Faking.Test.Tests
 {
     [TestClass]
     public class RelayGeneratorTest
