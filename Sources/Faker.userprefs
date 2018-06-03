@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{7FF659B5-AB16-423A-A89A-0155FCD915E4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Faker.Example.Console/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Faker.Portable/Generators/IntegerGenerator.cs">
     <Files>
       <File FileName="Faker.Portable/Generators/StringGenerator.cs" Line="1" Column="17" />
-      <File FileName="Faker.Portable/Generators/IntegerGenerator.cs" Line="97" Column="43" />
-      <File FileName="Faker.Example.Console/Views/HomeView.cs" Line="8" Column="17" />
+      <File FileName="Faker.Portable/Generators/IntegerGenerator.cs" Line="75" Column="39" />
+      <File FileName="Faker.Example.Console/Views/HomeView.cs" Line="1" Column="13" />
       <File FileName="Faker.Example.Console/ViewModels/HomeViewModel.cs" Line="8" Column="23" />
       <File FileName="Faker.Portable/Faker.cs" Line="1" Column="17" />
       <File FileName="Faker.Portable/Generators/UriGenerator.cs" Line="1" Column="17" />
@@ -33,11 +33,11 @@
       <File FileName="Faker.Example.Console/Mvvm/ViewModelBase.cs" Line="9" Column="17" />
       <File FileName="Faker.Example.Console/Models/Entities/Contact.cs" Line="7" Column="17" />
       <File FileName="Faker.Example.Console/Models/Entities/Customer.cs" Line="7" Column="17" />
-      <File FileName="Faker.Example.Console/Models/Services/CompanyService.cs" Line="8" Column="17" />
-      <File FileName="Faker.Example.Console/Models/Services/ICompanyService.cs" Line="8" Column="17" />
-      <File FileName="Faker.Example.Console/Views/IConsoleView.cs" Line="8" Column="17" />
+      <File FileName="Faker.Example.Console/Models/Services/CompanyService.cs" Line="1" Column="13" />
+      <File FileName="Faker.Example.Console/Models/Services/ICompanyService.cs" Line="1" Column="13" />
+      <File FileName="Faker.Example.Console/Views/IConsoleView.cs" Line="1" Column="13" />
       <File FileName="Faker.Example.Console/App.config" Line="1" Column="1" />
-      <File FileName="Faker.Example.Console/Program.cs" Line="2" Column="40" />
+      <File FileName="Faker.Example.Console/Program.cs" Line="1" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

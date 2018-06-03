@@ -88,7 +88,7 @@
 				result = this.CreateIdentifier();
             else if (name.Contains("timestamp") ||
                 name.Contains("date") ||
-                name.Contains("ts"))
+                name == "ts")
                 result = this.CreateTimestamp();
             else if (name.Contains("age"))
                 result = this.CreateAge();
