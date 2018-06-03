@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{7FF659B5-AB16-423A-A89A-0155FCD915E4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Faker.Portable/Generators/IntegerGenerator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Faker.Portable/Generators/LongGenerator.cs">
     <Files>
       <File FileName="Faker.Portable/Generators/StringGenerator.cs" Line="1" Column="17" />
-      <File FileName="Faker.Portable/Generators/IntegerGenerator.cs" Line="75" Column="39" />
+      <File FileName="Faker.Portable/Generators/IntegerGenerator.cs" Line="82" Column="38" />
       <File FileName="Faker.Example.Console/Views/HomeView.cs" Line="1" Column="13" />
       <File FileName="Faker.Example.Console/ViewModels/HomeViewModel.cs" Line="8" Column="23" />
-      <File FileName="Faker.Portable/Faker.cs" Line="1" Column="17" />
+      <File FileName="Faker.Portable/Faker.cs" Line="20" Column="21" />
       <File FileName="Faker.Portable/Generators/UriGenerator.cs" Line="1" Column="17" />
       <File FileName="Faker.Portable/Generators/RelayGenerator.cs" Line="3" Column="17" />
       <File FileName="Faker.Portable/Generators/EnumGenerator.cs" Line="1" Column="17" />
@@ -16,7 +16,7 @@
       <File FileName="Faker.Portable/Generators/DateTimeGenerator.cs" Line="1" Column="17" />
       <File FileName="Faker.Portable/Generators/BooleanGenerator.cs" Line="7" Column="32" />
       <File FileName="Faker.Portable/Generators/TaskGenerator.cs" Line="1" Column="17" />
-      <File FileName="Faker.Portable/Properties/AssemblyInfo.cs" Line="29" Column="39" />
+      <File FileName="Faker.Portable/Properties/AssemblyInfo.cs" Line="30" Column="38" />
       <File FileName="Faker.Portable/Generators/GuidGenerator.cs" Line="1" Column="1" />
       <File FileName="Faker.Portable/Constants.cs" Line="1" Column="1" />
       <File FileName="Faker.Portable/Generators/IGenerator.cs" Line="1" Column="17" />
@@ -38,6 +38,7 @@
       <File FileName="Faker.Example.Console/Views/IConsoleView.cs" Line="1" Column="13" />
       <File FileName="Faker.Example.Console/App.config" Line="1" Column="1" />
       <File FileName="Faker.Example.Console/Program.cs" Line="1" Column="13" />
+      <File FileName="Faker.Portable/Generators/LongGenerator.cs" Line="31" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

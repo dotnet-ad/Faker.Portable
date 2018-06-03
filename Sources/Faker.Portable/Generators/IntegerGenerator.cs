@@ -10,7 +10,7 @@
     {
         public Type[] MockedTypes
         {
-            get { return new Type[] { typeof(int), typeof(long), typeof(byte) }; }
+            get { return new Type[] { typeof(int), typeof(byte) }; }
         }
 
 		public static int LastGeneratedIdentifier = 1;
@@ -51,12 +51,6 @@
         public int CreateDay() => Faker.Random.Next(1,29);
 
         /// <summary>
-        /// Creates a random timestamp.
-        /// </summary>
-        /// <returns></returns>
-        public long CreateTimestamp() => ((long)Faker.Random.Next(0, 100000)) * 100000 + (long)Faker.Random.Next(0, 1000);
-
-        /// <summary>
         /// Creates a random percent.
         /// </summary>
         /// <returns></returns>
@@ -86,10 +80,6 @@
 				result = this.CreateByte();
 			else if (name == "id" || name == "identifier")
 				result = this.CreateIdentifier();
-            else if (name.Contains("timestamp") ||
-                name.Contains("date") ||
-                name == "ts")
-                result = this.CreateTimestamp();
             else if (name.Contains("age"))
                 result = this.CreateAge();
 

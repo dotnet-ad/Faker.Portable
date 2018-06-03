@@ -21,6 +21,7 @@
             this.Register(new BooleanGenerator());
 			this.Register(new CharacterGenerator());
 			this.Register(new GuidGenerator());
+			this.Register(new LongGenerator());
             this.Register(new IntegerGenerator());
             this.Register(new DoubleGenerator());
             this.Register(new DateTimeGenerator());
